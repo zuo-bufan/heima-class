@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>arrow-left</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="750" height="88"></rect>
+        <path d="M8.04500458,16.4088306 C7.91618806,15.8649334 8.06390499,15.2688672 8.48815536,14.8446168 L21.8446168,1.48815536 C22.4954906,0.837281545 23.5507656,0.837281545 24.2016394,1.48815536 C24.8525132,2.13902918 24.8525132,3.19430415 24.2016394,3.84517797 L12.0205798,16.0262376 L24.2035413,28.2091991 C24.8544151,28.8600729 24.8544151,29.9153479 24.2035413,30.5662217 C23.5526675,31.2170955 22.4973925,31.2170955 21.8465187,30.5662217 L8.49005728,17.2097603 C8.26132335,16.9810264 8.11297245,16.7023488 8.04500458,16.4088306 L8.04500458,16.4088306 Z" id="path-3"></path>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="我的-作品" transform="translate(-32.000000, -116.000000)">
+            <g id="Navbar-" transform="translate(0.000000, 88.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="矩形" fill="#FFFFFF" xlink:href="#path-1"></use>
+                <g id="arrow-left" mask="url(#mask-2)">
+                    <g transform="translate(31.799565, 27.912578)">
+                        <rect id="矩形" stroke="none" fill="none" x="0" y="0" width="32" height="32"></rect>
+                        <mask id="mask-4" fill="white">
+                            <use xlink:href="#path-3"></use>
+                        </mask>
+                        <use id="arrow-left" stroke="none" fill="#333333" fill-rule="evenodd" xlink:href="#path-3"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

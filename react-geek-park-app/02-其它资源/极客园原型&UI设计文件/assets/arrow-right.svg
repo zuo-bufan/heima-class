@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>arrow-right</title>
+    <defs>
+        <path d="M4.0215698,8.19047579 C3.9598306,7.91901921 4.0306284,7.62152532 4.23396321,7.40978393 L10.6354509,0.743636075 C10.9474019,0.418787975 11.4531743,0.418787975 11.7651252,0.743636075 C12.0770762,1.06848418 12.0770762,1.59516701 11.7651252,1.92001511 L5.92698435,7.99952538 L11.7660368,14.0799849 C12.0779877,14.404833 12.0779877,14.9315158 11.7660368,15.2563639 C11.4540858,15.581212 10.9483134,15.581212 10.6363625,15.2563639 L4.23487476,8.59021607 C4.12524711,8.47605603 4.05414546,8.33696936 4.0215698,8.19047579 L4.0215698,8.19047579 Z" id="path-1"></path>
+    </defs>
+    <g id="控件" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="标签/回复" transform="translate(-92.000000, -17.000000)">
+            <g id="arrow-right" transform="translate(100.000000, 25.000000) scale(-1, 1) translate(-100.000000, -25.000000) translate(92.000000, 17.000000)">
+                <rect id="矩形" x="0" y="0" width="16" height="16"></rect>
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="arrow-left" fill="#3A3948" xlink:href="#path-1"></use>
+            </g>
+        </g>
+    </g>
+</svg>

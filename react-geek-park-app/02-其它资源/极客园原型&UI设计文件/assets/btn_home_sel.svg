@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>btn_home_sel</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="图标资源下载" transform="translate(-147.000000, -369.000000)" fill-rule="nonzero">
+            <g id="btn_home_sel" transform="translate(147.000000, 369.000000)">
+                <polygon id="路径" fill-opacity="0" fill="#000000" points="0 0 40 0 40 40 0 40"></polygon>
+                <path d="M23.3741601,2.99692308 L35.445577,11.3046154 C37.1067811,12.3569231 37.9927567,14.2953846 37.9927567,16.2892308 L37.9927567,31.9630769 C38.1588771,35.2861538 35.445577,38 32.1231686,38 L8.03570842,38 C4.71330012,38 2,35.2861538 2,31.9630769 L2,16.1230769 C2,14.1846154 2.88597555,12.3569231 4.5471797,11.3046154 L16.6185965,2.99692308 C18.7227885,1.66769231 21.4360886,1.66769231 23.3741601,2.99692308 Z" id="形状结合" fill="#FC6627"></path>
+                <path d="M15,25 C16,27 17.790861,28 20,28 C22.209139,28 24,27 25,25" id="路径" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+        </g>
+    </g>
+</svg>
