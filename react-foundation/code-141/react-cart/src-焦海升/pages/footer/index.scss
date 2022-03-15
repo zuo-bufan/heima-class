@@ -1,0 +1,26 @@
+.my-footer {
+  z-index: 999;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  background: #fff;
+
+  .price {
+    color: red;
+    font-weight: bold;
+    font-size: 15px;
+  }
+  .footer-btn {
+    min-width: 80px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 25px;
+    padding: 0;
+  }
+}

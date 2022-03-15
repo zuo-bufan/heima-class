@@ -1,0 +1,35 @@
+.table {
+  width: 500px;
+
+  border-collapse: collapse;
+  margin: 100px auto;
+}
+.table .tr td {
+  border: 2px solid green;
+  padding: 10px;
+}
+.add {
+  width: 100px;
+  height: 30px;
+  background-color: rgb(59, 182, 212);
+  border: 0px solid transparent;
+  position: fixed;
+  top: 50px;
+  left: 15%;
+  border-radius: 20px;
+}
+.fm {
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  background-color: orange;
+  text-align: center;
+  padding-top: 20px;
+}
+.fm p {
+  margin-bottom: 10px;
+  height: 60px;
+  background-color: greenyellow;
+  line-height: 60px;
+  border-radius: 15%;
+}

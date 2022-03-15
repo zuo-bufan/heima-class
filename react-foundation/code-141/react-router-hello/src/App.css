@@ -1,0 +1,22 @@
+ul,
+ul li {
+  list-style: none;
+}
+.app {
+  width: 600px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin: 20px auto;
+}
+
+.nav {
+  display: flex;
+}
+
+.nav li {
+  padding: 0 10px;
+}
+
+.box {
+  border: 1px solid red;
+}

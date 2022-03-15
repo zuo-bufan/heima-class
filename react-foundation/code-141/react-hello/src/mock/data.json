@@ -1,0 +1,31 @@
+{
+  "tabs": [
+    {
+      "id": 1,
+      "name": "热度",
+      "type": "hot"
+    },
+    {
+      "id": 2,
+      "name": "时间",
+      "type": "time"
+    }
+  ],
+  "test": [],
+  "list": [
+    {
+      "id": 1,
+      "author": "猫爷",
+      "comment": "来杯啤酒",
+      "time": "2021-11-24T03:13:40.644Z",
+      "attitude": 0
+    },
+    {
+      "id": 2,
+      "author": "豆鑫杰",
+      "comment": "来2杯白酒",
+      "time": "2021-11-24T03:13:40.644Z",
+      "attitude": 0
+    }
+  ]
+}
