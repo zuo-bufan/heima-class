@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>proxy基本用法</title>
+</head>
+
+<body>
+  <script>
+    let obj = { msg: 'hi proxy!' }
+    // 代理对象=> 原始对象不受影响
+    let objProxy = new Proxy(obj, {
+      get: (target, prop) => {
+        console.log('get value by proxy', prop, target)
+        return prop in target ? target[prop] : undefined
+      },
+      /**
+       * target:被代理对象
+       * prop:属性
+       * value:即将修改的值
+       */
+      set: (target, prop, value) => {
+        console.log('set value by proxy', target)
+        if (prop === 'msg' && value === 'hi') {
+          throw new Error('不允许给msg设置hi值！')
+        }
+        target[prop] = value
+        // 表示设置成功
+        return true
+      },
+      has(target, prop) {
+        console.log('in')
+        if (Object.hasOwnProperty(prop)) {
+          return true
+        }
+        return false
+      }
+    })
+
+    // console.log('代理对象：', objProxy, objProxy.msg)
+
+    let arr = []
+    // 代理数组
+    let arrProxy = new Proxy(arr, {
+      get: (target, prop) => {
+        console.log('get value by proxy', target, prop)
+        return prop in target ? target[prop] : undefined
+      },
+      set: (target, prop, value) => {
+        console.log('set value by proxy', target, prop, value)
+        target[prop] = value
+        return true
+      }
+
+    })
+
+    console.log('代理数组：', arrProxy)
+
+    // arrProxy.push(1)
+
+    // arrProxy[1]=23232
+
+  </script>
+</body>
+
+</html>

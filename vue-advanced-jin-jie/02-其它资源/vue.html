@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vue官方示例</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <h1 @click="handlerClick">{{msg}}</h1>
+    <h2>{{abc}}</h2>
+    <p>
+      <input type="text" v-model="msg">
+    </p>
+  </div>
+
+  <!-- vue.js cdn -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue!',
+        abc: 100
+      },
+      methods: {
+        handlerClick(e) {
+          console.log(this, e)
+          this.msg = Math.random() * 100
+        }
+      }
+    })
+
+    console.log('vm实例：', vm)
+
+  </script>
+</body>
+
+</html>

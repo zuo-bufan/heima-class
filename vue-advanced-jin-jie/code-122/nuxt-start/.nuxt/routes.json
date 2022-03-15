@@ -1,0 +1,63 @@
+[
+  {
+    "path": "/layout",
+    "component": "/Users/mengwang/MengWork/Itcast/黑马课程/Vue课程/vue进阶/code-122/nuxt-start/pages/layout.vue",
+    "chunkName": "pages/layout",
+    "children": [
+      {
+        "name": "layout",
+        "path": "",
+        "component": "/Users/mengwang/MengWork/Itcast/黑马课程/Vue课程/vue进阶/code-122/nuxt-start/pages/layout/index.vue",
+        "chunkName": "pages/layout/index"
+      },
+      {
+        "name": "layout-three",
+        "path": "three",
+        "component": "/Users/mengwang/MengWork/Itcast/黑马课程/Vue课程/vue进阶/code-122/nuxt-start/pages/layout/three.vue",
+        "chunkName": "pages/layout/three"
+      },
+      {
+        "name": "layout-two",
+        "path": "two",
+        "component": "/Users/mengwang/MengWork/Itcast/黑马课程/Vue课程/vue进阶/code-122/nuxt-start/pages/layout/two.vue",
+        "chunkName": "pages/layout/two"
+      }
+    ]
+  },
+  {
+    "name": "list",
+    "path": "/list",
+    "component": "/Users/mengwang/MengWork/Itcast/黑马课程/Vue课程/vue进阶/code-122/nuxt-start/pages/list/index.vue",
+    "chunkName": "pages/list/index"
+  },
+  {
+    "name": "test",
+    "path": "/test",
+    "component": "/Users/mengwang/MengWork/Itcast/黑马课程/Vue课程/vue进阶/code-122/nuxt-start/pages/test/index.vue",
+    "chunkName": "pages/test/index"
+  },
+  {
+    "name": "test-two",
+    "path": "/test/two",
+    "component": "/Users/mengwang/MengWork/Itcast/黑马课程/Vue课程/vue进阶/code-122/nuxt-start/pages/test/two.vue",
+    "chunkName": "pages/test/two"
+  },
+  {
+    "name": "test-twos",
+    "path": "/test/twos",
+    "component": "/Users/mengwang/MengWork/Itcast/黑马课程/Vue课程/vue进阶/code-122/nuxt-start/pages/test/twos/index.vue",
+    "chunkName": "pages/test/twos/index"
+  },
+  {
+    "name": "detail-id",
+    "path": "/detail/:id?",
+    "component": "/Users/mengwang/MengWork/Itcast/黑马课程/Vue课程/vue进阶/code-122/nuxt-start/pages/detail/_id.vue",
+    "chunkName": "pages/detail/_id"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/mengwang/MengWork/Itcast/黑马课程/Vue课程/vue进阶/code-122/nuxt-start/pages/index.vue",
+    "chunkName": "pages/index"
+  }
+]

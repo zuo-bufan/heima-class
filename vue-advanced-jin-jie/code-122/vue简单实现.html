@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vue简单实现</title>
+</head>
+
+<body>
+  <!-- 组件的挂载点 -->
+  <div id="app">
+    {{msg}}
+    <div>
+      789{{msg}}456
+      <p>{{msg}}</p>
+      <div>
+        <ul>
+          <li>888{{msg}}</li>
+          <li>{{abc}}fdfdf</li>
+        </ul>
+      </div>
+    </div>
+    <h1>{{msg}}</h1>
+    <input type="text" v-model="msg">
+  </div>
+
+  <!-- 引入eventBus 事件总线 -->
+  <script src="./libs/eventBus.js"></script>
+  <!-- 引入自己实现的vue -->
+  <script>
+    console.log(EventEmitter)
+    // 实现Vue的入口
+    function Vue(options) {
+      console.log('接收到new的参数：', options, this)
+      // 组件管理边界dom元素
+      this.$el = document.querySelector(options.el)
+      // 继承eventBus =》 1. 继承实例的属性和方法 2. 继承原型链上的属性和方法
+      EventEmitter.call(this)
+      // 调用数据拦截
+      new Observer(this, options.data)
+      // 调用模板编译
+      new Compiler(this)
+    }
+
+    Vue.prototype = Object.create(EventEmitter.prototype, {
+      constructor: {
+        value: Vue
+      }
+    })
+    // 数据拦截/劫持步骤：=》放到单独的构造函数中处理
+    // 1. 创建Observer构造函数，传入vm和data
+    // 2. 枚举data对象，在vm实例上添加data的所有属性，为每一个data属性设置属性劫持控制
+    //    * 添加Observer的原型方法defineReactive，单独处理data对象key的劫持设置
+    /**
+     * vm 组件实例
+     * data 组件中设置的数据项
+     */
+    function Observer(vm, data) {
+      Object.keys(data).forEach((key) => {
+        // 在vm实例上添加data的所有属性，为每一个data属性设置属性劫持控制
+        this.defineReactive(vm, key, data)
+      })
+    }
+    // 数据拦截
+    Observer.prototype.defineReactive = function (vm, key, data) {
+      Object.defineProperty(vm, key, {
+        get() {
+          console.log(`读取data中${key}的值`)
+          return data[key]
+        },
+        set(newVal) {
+          if (newVal === data[key]) return;
+          console.log(`修改data中${key}的值：`, newVal)
+          data[key] = newVal
+          // 发布数据更新=》刷新dom=》
+          // 约定data中设置的属性key作为自定义事件的名称
+          vm.$emit(key, newVal)
+        }
+      })
+    }
+
+    //    模板实现步骤：
+    // 1. 获取挂载点元素，存储到vm的$el属性
+    // 2. 创建构造函数Compiler，接收vm作为参数；在Compiler上添加$vm属性存储vm
+    // 3. Compiler添加原型方法compile，接收$el作为参数
+    // 4. 使用元素childNodes属性获取所有子节点，遍历和递归处理所有元素节点
+    //    * node.nodeType = 1 =》元素节点 =〉定义编译元素节点方法并处理并递归
+    //    * node.nodeType = 3 =》文本节点 =〉定义编译文本节点方法处理
+    function Compiler(vm) {
+      // console.log(this, vm)
+      // 存储vm实例
+      this.$vm = vm
+      this.compile(vm.$el)
+    }
+
+    // 编译主方法
+    /**
+     * el 编译的dom元素 =>处理**差值表达式**和**v-model指令**（{{data}} ｜ v-model="data"）
+     */
+    Compiler.prototype.compile = function (el) {
+      el.childNodes.forEach((node) => {
+        if (node.nodeType === 1) {
+          //  元素节点=》处理v-model
+          this.compileElement(node)
+          // 递归处理子元素
+          node.childNodes.length && this.compile(node)
+        } else if (node.nodeType === 3) {
+          // 处理文本节点 =》胡子语法{{data}}
+          this.compileText(node)
+        }
+      })
+    }
+
+    // 元素节点=》处理v-model=>input的情况
+    Compiler.prototype.compileElement = function (node) {
+      if (node.hasAttribute('v-model')) {
+        // 存在v-model属性=> 
+        /**
+         * 1. 获取v-model属性的值
+         * 2. 根据v-model属性的值从vm上获取对应的值
+         */
+        let _key = node.getAttribute('v-model')
+        node.value = this.$vm[_key]
+
+        // 视图变化=》更新绑定的JS中的数据
+        node.oninput = (e) => {
+          // console.log(e.target.value)
+          this.$vm[_key] = e.target.value
+        }
+
+        // 订阅数据_key变化
+        this.$vm.$on(_key, (newVal) => {
+          node.value = newVal
+        })
+        // 移除v-Model
+        node.removeAttribute('v-model')
+      }
+    }
+
+    // 处理文本节点=>胡子语法中绑定的data中的key的值显示到页面中
+    Compiler.prototype.compileText = function (node) {
+      // let reg = /\{\{(.*)\}\}/
+      let reg = /(.*)\{\{(.*)\}\}(.*)/
+      if (reg.test(node.nodeValue)) {
+        // 如果符合{{key}}格式
+        let _key = RegExp.$2.trim()
+        let left = RegExp.$1.trim(), right = RegExp.$3.trim()
+        node.nodeValue = left + this.$vm[_key] + right
+        // 订阅数据_key变化
+        this.$vm.$on(_key, (newVal) => {
+          node.nodeValue = left + newVal + right
+        })
+      }
+    }
+
+
+  </script>
+  <!-- 使用自己实现的vue -->
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue!',
+        abc: 100
+      }
+    })
+    console.log('vue组件实例：', vm)
+  </script>
+</body>
+
+</html>

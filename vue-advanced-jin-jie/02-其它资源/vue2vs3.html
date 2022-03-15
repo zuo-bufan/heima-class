@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vue2vs3</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 列表渲染arr -->
+    <ul>
+      <li :key="item" v-for="item in arr">{{item}}</li>
+    </ul>
+    <p>{{obj.a || '--'}}</p>
+    <p>{{obj.b}}</p>
+    <button @click="cgArr">修改数组长度</button>
+    <button @click="cgObj">修改对象</button>
+  </div>
+  <!-- <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.12/vue.js"></script> -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.0.0-rc.1/vue.global.js"></script>
+  <script>
+    /**
+     * vue2响应式存在的=》问题：
+     * 数组：
+     * 1. 当你修改数组的长度时，例如：vm.items.length = newLength
+     * 2. 使用数组下标改变值时
+     * 对象：
+     * 1. 新增属性
+     * 2. 删除属性
+     */
+    // vue2基本用法：
+    // const app = new Vue({
+    //   el: '#app',
+    //   data() {
+    //     return {
+    //       arr: [1, 2, 3],
+    //       obj: { b: 0 }
+    //     }
+    //   },
+    //   methods: {
+    //     cgArr() {
+    //       this.arr[0] = 1000
+    //       // this.arr.length && this.arr.length--
+    //       console.log(this.arr)
+    //     },
+    //     cgObj() {
+    //       this.obj.a = 1
+    //       // delete this.obj.b
+    //       console.log(this.obj)
+    //     }
+    //   },
+    // })
+
+    // vue3基本用法：
+    const app = Vue.createApp({
+      // el:'#app',不支持
+      data() {
+        return {
+          arr: [1, 2, 3],
+          obj: { b: 0 }
+        }
+      },
+      methods: {
+        cgArr() {
+          // this.arr[0] = 1000
+          this.arr.length && this.arr.length--
+          console.log(this.arr)
+        },
+        cgObj() {
+          // this.obj.a = 1
+          delete this.obj.b
+          console.log(this.obj)
+        }
+      },
+    }).mount('#app')
+
+  </script>
+</body>
+
+</html>
